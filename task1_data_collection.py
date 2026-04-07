@@ -60,6 +60,13 @@ df['collected_at']=datetime.datetime.now()
 # ordering the columns
 df=df[['id','title','category','score','descendants','by','collected_at']]
 
+df = df.rename(columns={
+    'id': 'post_id',
+    'descendants': 'num_comments',
+    'by': 'author'
+})
+
+
 # Creating a json file inside the data folder by converting df to json
 df.to_json("data/trends20260406.json",orient='records',indent=4)
 print(f"Collected {len(df)} stories. Saved to data/trends20260406.json")
