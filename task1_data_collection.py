@@ -20,7 +20,7 @@ for id in data:
     try:
         url=f"https://hacker-news.firebaseio.com/v0/item/{id}.json"
         time.sleep(0.2)
-        response=requests.get(url,headers=headers,timeout=2)
+        response=requests.get(url,headers=headers,timeout=(3,7))
         l.append(response.json())
     except Exception as e:
         print(f"Failed  Id = {id} by  {e}")
@@ -62,3 +62,4 @@ df=df[['id','title','category','score','descendants','by','collected_at']]
 
 # Creating a json file inside the data folder by converting df to json
 df.to_json("data/trends20260406.json",orient='records',indent=4)
+print(f"Collected {len(df)} stories. Saved to data/trends20260406.json")
