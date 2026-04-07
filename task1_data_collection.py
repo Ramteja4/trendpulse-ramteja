@@ -69,4 +69,5 @@ df = df.rename(columns={
 
 # Creating a json file inside the data folder by converting df to json
 df.to_json("data/trends20260406.json",orient='records',indent=4)
+
 print(f"Collected {len(df)} stories. Saved to data/trends20260406.json")

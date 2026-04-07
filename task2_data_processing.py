@@ -22,3 +22,6 @@ df.loc[:,'title']=df['title'].str.strip()
 # To convert  the DataFrame to a CSV file inside the data folder
 df.to_csv("data/trends_clean.csv")
 print(f"Saved {len(df)} rows to data/trends_clean.csv")
+
+print("Stories per category:")
+print(df['category'].value_counts())
